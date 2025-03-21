@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ode & Anarchy</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <!-- Burger Menu (Left) -->
+    <button class="burger-menu" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Site Name (Middle) -->
+    <div class="logo">
+      <h1>Ode & Anarchy</h1>
+    </div>
+
+    <!-- Dark/Light Mode Toggle -->
+    <button id="theme-toggle" aria-label="Toggle dark/light mode" aria-pressed="false" title="Toggle Dark/Light Mode">
+      <i class="fas fa-moon"></i>
+      <i class="fas fa-sun"></i> <!-- Default icon for light theme -->
+    </button>
+
+    <!-- Login/Signup Form -->
+    <div id="auth-form">
+      <button class="login-btn">Login</button>
+      <div class="dropdown-content">
+        <input type="email" id="auth-email" placeholder="Email">
+        <input type="password" id="auth-password" placeholder="Password">
+        <button onclick="signIn(document.getElementById('auth-email').value, document.getElementById('auth-password').value)">Sign In</button>
+        <button onclick="signUp(document.getElementById('auth-email').value, document.getElementById('auth-password').value)">Sign Up</button>
+        <button onclick="signOut()">Sign Out</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Full-Screen Navigation Overlay -->
+  <nav class="nav-overlay">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="voices_unbound.html">Voices Unbound</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="soulstorm.html">Soulstorm</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="venues.html">Venues</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h2>Welcome to Ode & Anarchy</h2>
+      <p>The mix of deep poetry and the rebellious spirit of metal.</p>
+      <p>Your hub for music, tattoos, and creativity.</p>
+      <a href="community.html" class="btn">Join Now</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about">
+    <div class="about-content">
+      <h2>About Ode & Anarchy</h2>
+      <p>Welcome to <strong>Ode & Anarchy</strong>—a sanctuary where the raw energy of metal music, the eternal ink of tattoos, and the unchained power of words and art collide.</p>
+      <p>Join us. Write. Shred. Ink. Revolt.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <p>&copy; 2025 Ode & Anarchy. All rights reserved.</p>
+    <div class="social-links">
+      <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://tiktok.com" target="_blank" aria-label="TikTok">
+        <i class="fab fa-tiktok"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

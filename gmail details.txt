@@ -1,0 +1,40 @@
+tstraightjacket@gmail.com
+TheHalls0fValhallaFall3n
+
+CHatgpt
+Deepseek
+
+Firebase vir hosting - Domain name eg Godaddy
+
+easywave
+
+map APi key
+AIzaSyDb6ce5OzVbtiYVII-HzAhyJmo1s0xocAA
+
+
+GitHub
+TatteredStraightJacket
+TheHalls0fValhallaFallen
+
+Record type	Domain name	Value
+CNAME	www.ode-and-anarchy.co.za	
+ode-and-anarchy.web.app
+
+https://ode-and-anarchy.web.app/
+
+www.ode-and-anarchy.co.za
+
+const firebaseConfig = {
+    apiKey: "AIzaSyBqnkXnAPzOhMb9O-Z6SsSJdKdutPl50BY",
+    authDomain: "ode-and-anarchy.firebaseapp.com",
+    projectId: "ode-and-anarchy",
+    storageBucket: "ode-and-anarchy.firebasestorage.app",
+    messagingSenderId: "70787014804",
+    appId: "1:70787014804:web:6eb9e97013afa9a66b5481",
+  };
+
+firebase --version
+13.34.0
+
+tiny.cloud
+5u7rniwbzmyjxlv87nzgrpppy3cplp8xsz2x0jnkqgxcimvc

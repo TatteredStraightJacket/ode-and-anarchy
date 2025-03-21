@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voices Unbound - Ode & Anarchy</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- TinyMCE Script -->
+  <script src="https://cdn.tiny.cloud/1/5u7rniwbzmyjxlv87nzgrpppy3cplp8xsz2x0jnkqgxcimvc/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <!-- Burger Menu (Left) -->
+    <button class="burger-menu" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Site Name (Middle) -->
+    <div class="logo">
+      <h1>Ode & Anarchy</h1>
+    </div>
+
+    <!-- Dark/Light Mode Toggle -->
+    <button id="theme-toggle" aria-label="Toggle dark/light mode" aria-pressed="false" title="Toggle Dark/Light Mode">
+      <i class="fas fa-moon"></i>
+      <i class="fas fa-sun"></i> <!-- Default icon for light theme -->
+    </button>
+
+    <!-- Login/Signup Form -->
+    <div id="auth-form">
+      <button class="login-btn">Login</button>
+      <div class="dropdown-content">
+        <input type="email" id="auth-email" placeholder="Email">
+        <input type="password" id="auth-password" placeholder="Password">
+        <button onclick="signIn(document.getElementById('auth-email').value, document.getElementById('auth-password').value)">Sign In</button>
+        <button onclick="signUp(document.getElementById('auth-email').value, document.getElementById('auth-password').value)">Sign Up</button>
+        <button onclick="signOut()">Sign Out</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Full-Screen Navigation Overlay -->
+  <nav class="nav-overlay">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="voices_unbound.html">Voices Unbound</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="soulstorm.html">Soulstorm</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="venues.html">Venues</a></li>
+    </ul>
+  </nav>
+
+  <!-- Voices Unbound Section -->
+<section class="voices-unbound">
+    <!-- Hero Section -->
+    <div class="voices-hero-section">
+      <div class="voices-hero-content">
+        <h2>Voices Unbound</h2>
+        <p class="subheading">A space for creativity, expression, and collaboration. Share your articles, poetry, or short stories with the community!</p>
+      </div>
+    </div>
+  
+    <div class="container">
+      <!-- Add Article Form -->
+      <div class="add-article card">
+        <h3>Share Your Voice</h3>
+        <form id="add-article-form">
+          <label for="article-title">Title:</label>
+          <input type="text" id="article-title" name="article-title" required placeholder="Enter a title for your piece">
+  
+          <label for="article-author">Author Name (optional):</label>
+          <input type="text" id="article-author" name="article-author" placeholder="Your name or pseudonym">
+  
+          <label for="article-image">Upload Image (optional):</label>
+          <input type="file" id="article-image" name="article-image" accept="image/*">
+  
+          <label for="article-content">Content:</label>
+          <textarea id="article-content" name="article-content" rows="10" required placeholder="Write your article, poem, or story here..."></textarea>
+  
+          <button type="submit">Publish</button>
+        </form>
+      </div>
+  
+      <!-- Article List -->
+      <div class="article-list" id="article-list">
+        <!-- Articles will be dynamically added here -->
+        <div class="placeholder-message">
+          <p>No contributions yet. Be the first to share your voice!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comments Section -->
+  <section class="comments">
+    <div class="container">
+      <h3>Comments</h3>
+      <div id="comments-list">
+        <!-- Comments will be dynamically added here -->
+      </div>
+
+      <!-- Add Comment Form -->
+      <form id="add-comment-form" class="card">
+        <textarea id="comment-content" placeholder="Write your comment..."></textarea>
+        <input type="text" id="comment-author" placeholder="Your name (optional)">
+        <button type="submit">Post Comment</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 Ode & Anarchy. All rights reserved.</p>
+      <div class="social-links">
+        <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://tiktok.com" target="_blank" aria-label="TikTok">
+          <i class="fab fa-tiktok"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

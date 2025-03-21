@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soulstorm - Ode & Anarchy</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <!-- Burger Menu (Left) -->
+    <button class="burger-menu" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  
+    <!-- Site Name (Middle) -->
+    <div class="logo">
+      <h1>Ode & Anarchy</h1>
+    </div>
+
+    <!-- Dark/Light Mode Toggle -->
+    <button id="theme-toggle" aria-label="Toggle dark/light mode" aria-pressed="false" title="Toggle Dark/Light Mode">
+      <i class="fas fa-moon"></i>
+      <i class="fas fa-sun"></i>
+    </button>
+  
+    <!-- Social Media Icons (Right) -->
+    <div class="social-menu">
+      <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </div>
+  
+    <!-- Full-Screen Navigation Overlay -->
+    <nav class="nav-overlay">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="voices_unbound.html">Voices Unbound</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="soulstorm.html">Soulstorm</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="venues.html">Venues</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="soulstorm-hero">
+    <div class="hero-content">
+      <h1>Soulstorm</h1>
+      <p class="tagline">Where Ink, Verse & Sound Collide</p>
+      <p class="subtagline">Unleash the Storm. Leave Your Mark.</p>
+      <p class="subtagline">Raw. Rebellious. Unchained.</p>
+      <div class="cta-buttons">
+        <a href="#share" class="btn">Share Your Work</a>
+        <a href="#explore" class="btn btn-outline">Explore Collaborations</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Artist Groups Section -->
+  <section class="artist-groups">
+    <h2>Find Your Tribe</h2>
+    <div class="group-grid">
+      <div class="group-card" id="lyricist">
+        <h3>Lyricist</h3>
+        <p>Words that ignite the soul.</p>
+      </div>
+      <div class="group-card" id="guitarist">
+        <h3>Guitarist</h3>
+        <p>Riffs that electrify.</p>
+      </div>
+      <div class="group-card" id="bassist">
+        <h3>Bassist</h3>
+        <p>Grooves that move.</p>
+      </div>
+      <div class="group-card" id="drummer">
+        <h3>Drummer</h3>
+        <p>Beats that shake the earth.</p>
+      </div>
+      <div class="group-card" id="poet">
+        <h3>Poet</h3>
+        <p>Verses that resonate.</p>
+      </div>
+      <div class="group-card" id="tattoo-artist">
+        <h3>Tattoo Artist</h3>
+        <p>Ink that tells a story.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Media Upload Section -->
+  <section class="media-upload">
+    <h2>Share Your Storm</h2>
+    <form id="upload-form">
+      <label for="media-type">Media Type:</label>
+      <select id="media-type" name="media-type">
+        <option value="music">Music</option>
+        <option value="video">Video</option>
+        <option value="session">Session</option>
+      </select>
+      <label for="media-file">Upload File:</label>
+      <input type="file" id="media-file" name="media-file" accept="audio/*,video/*" required>
+      <label for="media-description">Description:</label>
+      <textarea id="media-description" name="media-description" placeholder="Describe your work..." required></textarea>
+      <button type="submit" class="btn">Upload</button>
+    </form>
+  </section>
+
+  <!-- Collaboration Feed -->
+  <section class="collab-feed">
+    <h2>The Storm: Latest Creations</h2>
+    <div class="feed-container">
+      <!-- Posts will be dynamically added here -->
+      <div class="post">
+        <h3>Guitar Riff for Collaboration</h3>
+        <p>Posted by <strong>User123</strong></p>
+        <audio controls>
+          <source src="audio/guitar-riff.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+        <div class="ratings">
+          <span class="stars">★★★★☆</span>
+          <span class="comments">5 comments</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 Ode & Anarchy. All rights reserved.</p>
+      <div class="social-links">
+        <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://tiktok.com" target="_blank" aria-label="TikTok">
+          <i class="fab fa-tiktok"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

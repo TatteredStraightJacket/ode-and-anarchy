@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events - Ode & Anarchy</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- TinyMCE Script -->
+<script src="https://cdn.tiny.cloud/1/5u7rniwbzmyjxlv87nzgrpppy3cplp8xsz2x0jnkqgxcimvc/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <!-- Burger Menu (Left) -->
+<button class="burger-menu" aria-label="Open menu">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+  
+    <!-- Site Name (Middle) -->
+    <div class="logo">
+      <h1>Ode & Anarchy</h1>
+    </div>
+
+    <!-- Dark/Light Mode Toggle -->
+    <button id="theme-toggle" aria-label="Toggle dark/light mode" aria-pressed="false" title="Toggle Dark/Light Mode">
+      <i class="fas fa-moon"></i>
+      <i class="fas fa-sun"></i> <!-- Default icon for light theme -->
+    </button>
+  
+    <!-- Social Media Icons (Right) -->
+    <div class="social-menu">
+      <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </div>
+  
+    <!-- Full-Screen Navigation Overlay -->
+    <!-- Full-Screen Navigation Overlay -->
+<nav class="nav-overlay">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="voices_unbound.html">Voices Unbound</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="soulstorm.html">Soulstorm</a></li>
+    <li><a href="news.html">News</a></li>
+    <li><a href="venues.html">Venues</a></li>
+  </ul>
+</nav>
+  </header>
+
+  <!-- Events Page Content -->
+  <section class="events">
+    <h2>Upcoming Events</h2>
+
+    <!-- Event Submission Form -->
+    <div class="event-form">
+      <h3>Add an Event</h3>
+      <form id="eventForm">
+        <input type="text" id="eventName" placeholder="Event Name" required>
+        <input type="date" id="eventDate" required>
+        <input type="text" id="eventLocation" placeholder="Location (City, Venue)" required>
+        <textarea id="eventDescription" placeholder="Event Description" required></textarea>
+        <input type="url" id="eventTicketLink" placeholder="Ticket Link (optional)">
+        <button type="submit">Submit Event</button>
+      </form>
+    </div>
+
+     <!-- Event List -->
+     <div class="event-list" id="eventList">
+      <div class="loading-spinner" id="loadingSpinner">Loading events...</div>
+    </div>
+  </section>
+
+  <!-- Comments Section -->
+<section class="comments">
+  <h3>Comments</h3>
+  <div id="comments-list">
+    <!-- Comments will be dynamically added here -->
+  </div>
+
+  <!-- Add Comment Form -->
+  <form id="add-comment-form">
+    <textarea id="comment-content" placeholder="Write your comment..."></textarea>
+    <input type="text" id="comment-author" placeholder="Your name (optional)">
+    <button type="submit">Post Comment</button>
+  </form>
+</section>
+
+<button id="load-more">Load More</button>
+
+  <!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <p>&copy; 2025 Ode & Anarchy. All rights reserved.</p>
+    <div class="social-links">
+      <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://tiktok.com" target="_blank" aria-label="TikTok">
+        <i class="fab fa-tiktok"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+
+    <!-- Firebase and JavaScript -->
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

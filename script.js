@@ -68,21 +68,9 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore(); // Initialize Firestore
+const db = firebase.firestore();
 const auth = firebase.auth();
 const storage = firebase.storage();
-
-// Test Firestore
-db.collection('test').add({
-  message: 'Firestore is working!',
-  timestamp: firebase.firestore.FieldValue.serverTimestamp()
-})
-.then(() => {
-  console.log('Test document added to Firestore!');
-})
-.catch((error) => {
-  console.error('Error adding document: ', error);
-});
 
 // Event Form Submission
 const eventForm = document.getElementById('eventForm');

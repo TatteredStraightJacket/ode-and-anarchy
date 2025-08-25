@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Same head as index.html -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join Ode & Anarchy</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js"></script>
+</head>
+<body>
+  <!-- Reuse your header/nav from index.html -->
+
+  <!-- Hero Section -->
+  <section class="hero-section" style="background-image: url('images/join-hero.jpg');">
+    <div class="hero-content">
+      <h1>Join the Rebellion</h1>
+      <p>Become part of our metal, poetry, and ink community.</p>
+    </div>
+  </section>
+
+  <!-- Signup Benefits -->
+  <section class="benefits">
+    <h2>Why Join?</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <i class="fas fa-ticket-alt"></i>
+        <h3>Exclusive Events</h3>
+        <p>Early access to concerts and tattoo expos.</p>
+      </div>
+      <div class="benefit-card">
+        <i class="fas fa-book"></i>
+        <h3>Submit Your Work</h3>
+        <p>Share your poetry, music, or art with the community.</p>
+      </div>
+      <div class="benefit-card">
+        <i class="fas fa-users"></i>
+        <h3>Private Forum</h3>
+        <p>Connect with other rebels.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Signup Form (Connected to Firebase) -->
+  <section class="signup-form">
+    <h2>Claim Your Spot</h2>
+    <form id="community-signup">
+      <input type="email" placeholder="Email" required>
+      <input type="password" placeholder="Password" required>
+      <button type="submit" class="btn">Join Now</button>
+    </form>
+    <p>Already a member? <a href="#" class="login-link">Log in</a></p>
+  </section>
+
+  <!-- Reuse footer from index.html -->
+</body>
+</html>

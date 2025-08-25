@@ -1,0 +1,79 @@
+/* Map Section Styles */
+.events-map {
+  padding: 40px 20px;
+  background-color: var(--card-bg);
+  margin: 40px auto;
+  max-width: 1200px;
+}
+
+.events-map h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--primary);
+}
+
+.map-legend {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.legend-icon {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.venues {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .venues-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  #map {
+    width: 400px;
+    height: 300px;
+    background-color: #ccc;
+  }
+
+  .venue-list {
+    width: 300px;
+    text-align: left;
+  }
+
+/* Map Container */
+#event-map {
+  box-shadow: var(--card-shadow);
+  border: 2px solid var(--primary);
+}
+
+/* Responsive Map */
+@media (max-width: 768px) {
+  #event-map {
+    height: 400px!important;
+  }
+}
+
+@media (max-width: 480px) {
+  #event-map {
+    height: 300px!important;
+  }
+}

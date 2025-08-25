@@ -1,0 +1,297 @@
+/* Update the auth form dropdown styles */
+#auth-form {
+  position: relative;
+  margin-left: 20px; /* Add some spacing */
+}
+
+#auth-form .dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  border-radius: 8px;
+  padding: 20px;
+  z-index: 1000;
+  width: 300px;
+}
+
+#auth-form:hover .dropdown-content {
+  display: block;
+}
+
+/* Button container for side-by-side buttons */
+.button-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.button-row button {
+  flex: 1; /* Make buttons equal width */
+  padding: 10px;
+  margin-bottom: 0; /* Remove bottom margin */
+}
+
+/* Sign out button styling */
+.sign-out-btn {
+  width: 100%;
+  padding: 10px;
+  background: var(--secondary);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sign-out-btn:hover {
+  background: var(--primary);
+}
+
+/* Input field styling */
+#auth-form .dropdown-content input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid var(--input-border);
+  border-radius: 5px;
+  background: var(--input-bg);
+  color: var(--text);
+}
+
+/* Status message styling */
+.auth-status {
+  text-align: center;
+  margin: 10px 0;
+  color: var(--text);
+  font-size: 14px;
+}
+
+/* Enhanced Auth Dropdown Styles */
+#auth-form {
+  position: relative;
+  margin-left: 20px;
+}
+
+#auth-form .login-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#auth-form .login-btn:hover {
+  background: var(--secondary);
+  transform: scale(1.05);
+}
+
+#auth-form .dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  border-radius: 8px;
+  padding: 20px;
+  z-index: 1000;
+  width: 300px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.button-row {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.button-row button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#sign-in-btn {
+  background: var(--primary);
+  color: white;
+}
+
+#sign-up-btn {
+  background: var(--secondary);
+  color: white;
+}
+
+.sign-out-btn {
+  background: #333;
+  color: white;
+  width: 100%;
+}
+
+/* Input styles */
+#auth-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid var(--input-border);
+  border-radius: 5px;
+  background: var(--input-bg);
+  color: var(--text);
+}
+
+#auth-confirm-password {
+  margin-top: 10px;
+}
+
+.auth-toggle {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+/* Dark Mode Text Colors */
+[data-theme="dark"] #auth-form .dropdown-content,
+[data-theme="dark"] #auth-form input,
+[data-theme="dark"] #auth-form .auth-toggle,
+[data-theme="dark"] #auth-form .auth-state,
+[data-theme="dark"] #auth-error {
+  color: white !important;
+}
+
+.auth-state {
+  display: none;
+}
+
+.auth-state.logged-in {
+  display: block;
+}
+
+/* More visible user info */
+#user-name, #user-email {
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+#user-email {
+  font-size: 0.9em;
+  color: #666;
+}
+
+[data-theme="dark"] #user-email {
+  color: #ccc;
+}
+
+/* Specific input placeholder color for dark mode */
+[data-theme="dark"] #auth-form input::placeholder {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Dark mode dropdown background */
+[data-theme="dark"] #auth-form .dropdown-content {
+  background: #333 !important;
+  border: 1px solid #444 !important;
+}
+
+/* Dark mode input backgrounds */
+[data-theme="dark"] #auth-form input {
+  background: #444 !important;
+  border-color: #555 !important;
+  color: white !important;
+}
+
+/* Add these to your CSS file */
+/* Loading spinner */
+.fa-spinner {
+    margin-right: 8px;
+}
+
+#auth-error {
+  display: none;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Login button feedback */
+.login-btn .fa-check {
+  margin-right: 8px;
+  color: white;
+}
+
+/* Success message styling */
+#auth-error.success {
+    color: #4CAF50 !important;
+    background-color: rgba(76, 175, 80, 0.1);
+    padding: 10px;
+    border-radius: 4px;
+    border-left: 4px solid #4CAF50;
+}
+
+/* Error message styling */
+#auth-error.error {
+    color: #ff4444 !important;
+    background-color: rgba(255, 68, 68, 0.1);
+    padding: 10px;
+    border-radius: 4px;
+    border-left: 4px solid #ff4444;
+}
+
+/* Button disabled state */
+.btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Visual feedback for successful login */
+.logged-in {
+    display: block !important; /* Force show when user is logged in */
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Login button state when logged in */
+.login-btn.logged-in {
+  background-color: #4CAF50 !important;
+  padding-right: 15px;
+}
+
+.login-btn.logged-in::after {
+  content: "✓";
+  margin-left: 8px;
+  font-weight: bold;
+}
+
+.auth-state.logged-out {
+  display: block;
+}
+
+.auth-state.logged-in {
+  display: none;
+}
+
+/* This ensures the states toggle properly */
+.auth-state.logged-out:not(.hidden),
+.auth-state.logged-in:not(.hidden) {
+  display: block !important;
+}
+
+.logged-out {
+  display: none !important;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

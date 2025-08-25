@@ -1,0 +1,270 @@
+/* Events Section Styles */
+.events {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.events h2 {
+  text-align: center;
+  font-size: 42px;
+  margin-bottom: 40px;
+  color: var(--primary);
+}
+
+/* Event Form Styles */
+.event-form {
+  background-color: var(--card-bg);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  margin-bottom: 40px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.event-form h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: var(--primary);
+  text-align: center;
+}
+
+#eventForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+#eventForm input,
+#eventForm textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  background-color: var(--input-bg);
+  color: var(--text);
+  font-family: 'Roboto', sans-serif;
+  transition: border-color 0.3s ease;
+}
+
+#eventForm input:focus,
+#eventForm textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+#eventForm textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+#eventDescription {
+  grid-column: 1 / -1;
+}
+
+#eventForm button {
+  grid-column: 1 / -1;
+  padding: 15px;
+  font-size: 18px;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#eventForm button:hover {
+  background-color: var(--secondary);
+  transform: translateY(-2px);
+}
+
+/* Event List Styles */
+.event-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.event-list .card {
+  background-color: var(--card-bg);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-list .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.event-list .card h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 10px;
+}
+
+.event-list .card p {
+  margin-bottom: 10px;
+  color: var(--paragraph-text);
+}
+
+.event-list .card a {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 16px;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.event-list .card a:hover {
+  background-color: var(--secondary);
+}
+
+.loading-spinner {
+  text-align: center;
+  padding: 40px;
+  grid-column: 1 / -1;
+  color: var(--primary);
+  font-size: 18px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  #eventForm {
+    grid-template-columns: 1fr;
+  }
+  
+  .event-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Comments Section Adjustments */
+.comments {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.comments h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: var(--primary);
+  text-align: center;
+}
+
+#add-comment-form {
+  background-color: var(--card-bg);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  margin-top: 30px;
+}
+
+#add-comment-form textarea {
+  min-height: 150px;
+}
+
+#load-more {
+  display: block;
+  margin: 30px auto;
+  padding: 12px 30px;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#load-more:hover {
+  background-color: var(--secondary);
+}
+
+.events-hero {
+  position: relative;
+  background-image: url('images/events-banner.png'); /* Replace with your actual image path */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 60vh;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.events-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6); /* Dark overlay for contrast */
+  z-index: 1;
+}
+
+.events-hero-content {
+  position: relative;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 90%;
+    width: 100%;
+}
+
+.events-hero h2 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  margin-bottom: 20px;
+  color: var(--primary);
+  text-shadow: 2px 2px 10px black;
+  font-family: 'Metal Mania', cursive;
+}
+
+.events-hero p {
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 6px black;
+}
+
+.events-hero .btn {
+  padding: 12px 28px;
+  font-size: 1.1rem;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.events-hero .btn:hover {
+  background-color: var(--secondary);
+  transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+    .events-hero {
+      background-position: top;
+      background-size: cover;
+      padding: 2rem 1rem;
+    }
+
+    .events-hero h2 {
+      font-size: 2rem;
+    }
+
+    .events-hero p {
+      font-size: 1rem;
+    }

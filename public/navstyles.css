@@ -1,0 +1,121 @@
+html body .nav-overlay {
+  transform: translateX(-100%);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+html body .nav-overlay.active {
+  transform: translateX(0);
+}
+
+
+/* Update the nav-overlay styles */
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px; /* Fixed width for the sidebar */
+  height: 100%;
+  background: var(--overlay-bg);
+  display: flex;
+  justify-content: flex-start; /* Align to left */
+  align-items: flex-start; /* Align to top */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-100%); /* Start off-screen to the left */
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  z-index: 999;
+  padding-top: 80px; /* Space for header */
+  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.nav-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0); /* Slide in from left */
+}
+
+.nav-overlay ul {
+  list-style: none;
+  margin: 0;
+  padding: 20px;
+  text-align: left; /* Left-align text */
+  width: 100%;
+}
+
+.nav-overlay ul li {
+  margin: 15px 0;
+}
+
+.nav-overlay ul li a {
+  color: var(--text);
+  font-size: 18px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: block;
+  padding: 10px 0;
+}
+
+.nav-overlay ul li a:hover {
+  color: var(--primary);
+  padding-left: 10px; /* Indent on hover */
+}
+
+/* Adjust burger menu position */
+.burger-menu {
+  position: relative;
+  z-index: 1000;
+  margin-left: 20px;
+}
+
+/* Ensure content doesn't shift when menu opens */
+body {
+  overflow-x: hidden;
+}
+
+/* Darken the rest of the page when menu is open */
+.nav-overlay::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: calc(100% - 300px);
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.nav-overlay.active::before {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+html body .nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px; /* Sidebar width */
+  height: 100%;
+  background: var(--overlay-bg);
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-100%); /* Hide off-screen to the left */
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  z-index: 999;
+  padding-top: 80px; /* Header offset */
+  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+}
+
+html body .nav-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0); /* Slide in from left */
+}
+
+body {
+  overflow-x: hidden;
+}

@@ -4,11 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Venues - Ode & Anarchy</title>
+
+<!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="navstyles.css">
+    <link rel="stylesheet" href="venuestyles.css">
+    <link rel="stylesheet" href="loginbuttonstyle.css">
     <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Add these to your head section -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   </head>
 <body>
   <!-- Header -->
@@ -22,7 +34,9 @@
   
     <!-- Site Name (Middle) -->
     <div class="logo">
-      <h1>Ode & Anarchy</h1>
+      <div class="vinyl">
+        <h1>Ode & Anarchy</h1>
+      </div>
     </div>
 
     <!-- Dark/Light Mode Toggle -->
@@ -31,18 +45,7 @@
       <i class="fas fa-sun"></i> <!-- Default icon for light theme -->
     </button>
   
-    <!-- Social Media Icons (Right) -->
-    <div class="social-menu">
-      <a href="https://facebook.com" target="_blank" aria-label="Facebook">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="https://twitter.com" target="_blank" aria-label="Twitter">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="https://instagram.com" target="_blank" aria-label="Instagram">
-        <i class="fab fa-instagram"></i>
-      </a>
-    </div>
+   
   
     <!-- Full-Screen Navigation Overlay -->
     <nav class="nav-overlay">
@@ -84,23 +87,34 @@
     </div>
   </section>
 
+  <!-- Add this section where you want the map to appear -->
+<section class="events-map">
+  <h2>Event Locations</h2>
+  <div id="event-map" style="height: 500px; width: 100%; border-radius: 12px;"></div>
+  <div class="map-legend">
+    <div><span class="legend-icon" style="background-color: #8b0000;"></span> Music Events</div>
+    <div><span class="legend-icon" style="background-color: #b22222;"></span> Poetry Readings</div>
+    <div><span class="legend-icon" style="background-color: #ff5500;"></span> Art Exhibitions</div>
+  </div>
+</section>
+
   <!-- Footer -->
 <footer>
-  <div class="footer-content">
-    <p>&copy; 2025 Ode & Anarchy. All rights reserved.</p>
-    <div class="social-links">
-      <a href="https://facebook.com" target="_blank" aria-label="Facebook">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="https://instagram.com" target="_blank" aria-label="Instagram">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="https://tiktok.com" target="_blank" aria-label="TikTok">
-        <i class="fab fa-tiktok"></i>
-      </a>
+    <div class="footer-content">
+      <p>&copy; 2025 Ode & Anarchy. All rights reserved.</p>
+      <div class="social-links">
+        <a href="https://www.facebook.com/profile.php?id=61578275082122" target="_blank" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/odeandanarchy/" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.tiktok.com/@odeandanarchyapp" target="_blank" aria-label="TikTok">
+          <i class="fab fa-tiktok"></i>
+        </a>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
   <script src="script.js"></script>
 </body>

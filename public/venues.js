@@ -67,3 +67,15 @@ document.getElementById("add-venue-form").addEventListener("submit", (e) => {
   addVenue(name, address);
   document.getElementById("add-venue-form").reset();
 });
+
+{
+  name: "Metal Night",
+  date: firebase.firestore.Timestamp.fromDate(new Date("2025-06-15")),
+  location: {
+    address: "123 Venue St, City",
+    lat: 51.505, // Latitude
+    lng: -0.09   // Longitude
+  },
+  type: "music", // "music", "poetry", or "art"
+  ticketLink: "https://tickets.example.com"
+}

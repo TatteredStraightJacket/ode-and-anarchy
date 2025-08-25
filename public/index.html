@@ -1,89 +1,421 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ode & Anarchy</title>
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/11.4.0/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/11.4.0/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/11.4.0/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/11.4.0/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/11.4.0/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/11.4.0/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/11.4.0/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/11.4.0/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/11.4.0/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/11.4.0/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="navstyles.css">
+  <link rel="stylesheet" href="loginbuttonstyle.css">
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Firebase Scripts -->
+  <script type="module" src="firebase-config.js" defer></script>
+  <script type="module">
+import { auth } from './firebase-config.js';
+import {
+  onAuthStateChanged,
+  signOut
+} from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+
+onAuthStateChanged(auth, (user) => {
+  const welcomeMessage = document.getElementById('welcome-message');
+  const loggedOutState = document.querySelector('.logged-out');
+  const loggedInState = document.querySelector('.logged-in');
+
+  if (user) {
+    const name = user.displayName || user.email || 'Friend';
+    welcomeMessage.textContent = `Welcome, ${name}`;
+    loggedOutState.style.display = 'none';
+    loggedInState.style.display = 'block';
+  } else {
+    welcomeMessage.textContent = '';
+    loggedOutState.style.display = 'block';
+    loggedInState.style.display = 'none';
+  }
+});
+
+</script>
+<script type="module" src="auth.js" defer></script>
+<script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="sticky-header">
+    <!-- Burger Menu (Left) -->
+    <button class="burger-menu" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Site Name (Middle) -->
+    <div class="logo">
+      <div class="vinyl">
+        <h1>Ode & Anarchy</h1>
+      </div>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+    <!-- Dark/Light Mode Toggle -->
+    <button id="theme-toggle" aria-label="Toggle dark/light mode" aria-pressed="false" title="Toggle Dark/Light Mode">
+      <i class="fas fa-moon"></i>
+      <i class="fas fa-sun"></i>
+    </button>
 
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
+    <div id="auth-form">
+  <button class="login-btn">Login</button>
+  <div class="dropdown-content">
+    
+    <!-- Logged Out State -->
+    <div class="auth-state logged-out">
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="password" placeholder="Password" required />
+
+      <div id="auth-error" style="display:none; color:red; margin:10px 0;"></div>
+
+      <div class="button-row">
+        <button type="button" id="sign-in-btn" class="btn">Log In</button>
+        <button type="button" id="sign-up-btn" class="btn">Sign Up</button>
+      </div>
+
+      <button id="google-signin" class="google-btn">
+        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google Icon" />
+        Sign in with Google
+      </button>
+    </div>
+
+    <!-- Logged In State -->
+    <div class="auth-state logged-in" style="display:none;">
+      <p id="welcome-message"></p>
+      <p><small><span id="user-email"></span></small></p>
+      <button class="sign-out-btn btn">Sign Out</button>
+    </div>
+  </div>
+</div>
+  </div>
+  </header>
+
+  <!-- Full-Screen Navigation Overlay -->
+  <nav class="nav-overlay">
+    <ul>
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="voices_unbound.html" class="nav-link">Voices Unbound</a></li>
+      <li><a href="events.html" class="nav-link">Events</a></li>
+      <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+      <li><a href="soulstorm.html" class="nav-link">Soulstorm</a></li>
+      <li><a href="news.html" class="nav-link">News</a></li>
+      <li><a href="venues.html" class="nav-link">Venues</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section with Slider -->
+ <section class="hero-section">
+  <div class="hero-slider">
+    <div class="slide active" style="background-image: url('images/hero-metal-banner.webp')">
+      <div class="hero-content" data-aos="fade-up">
+        <h2>Welcome to Ode & Anarchy</h2>
+        <p>The mix of deep poetry and the rebellious spirit of metal.</p>
+        <a href="#about" class="btn">Explore Now</a>
+      </div>
+    </div>
+    <div class="slide" style="background-image: url('images/hero-tattoo-banner.webp')">
+      <div class="hero-content">
+        <h2>Ink Your Story</h2>
+        <p>Where body art meets self-expression.</p>
+        <a href="gallery.html" class="btn">View Gallery</a>
+      </div>
+    </div>
+  </div>
+  <div class="slider-controls">
+    <button class="prev-slide"><i class="fas fa-chevron-left"></i></button>
+    <div class="slide-indicators"></div>
+    <button class="next-slide"><i class="fas fa-chevron-right"></i></button>
+  </div>
+</section>
+
+  <!-- About Section -->
+  <section class="about" data-aos="fade-up">
+    <div class="about-content">
+      <h2>About Ode & Anarchy</h2>
+      <p>Welcome to <strong>Ode & Anarchy</strong>—a sanctuary where the raw energy of metal music, the eternal ink of tattoos, and the unchained power of words and art collide.</p>
+      <p>Join us. Write. Shred. Ink. Revolt.</p>
+    </div>
+  </section>
+
+  <!-- Dynamic Content Section -->
+  <section class="dynamic-content">
+    <div class="content-tabs">
+      <button class="tab-btn active" data-tab="featured">Featured</button>
+      <button class="tab-btn" data-tab="events">Upcoming Events</button>
+      <button class="tab-btn" data-tab="poetry">Latest Poetry</button>
+    </div>
+    
+    <div class="tab-content active" id="featured">
+      <div class="content-grid">
+        <!-- Content will be loaded dynamically from Firebase -->
+      </div>
+    </div>
+    
+    <div class="tab-content" id="events">
+      <div class="content-grid">
+        <!-- Events will be loaded dynamically from Firebase -->
+      </div>
+    </div>
+    
+    <div class="tab-content" id="poetry">
+      <div class="content-grid">
+        <!-- Poetry will be loaded dynamically from Firebase -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Signup -->
+  <section class="newsletter" data-aos="fade-up">
+    <div class="newsletter-content">
+      <h2>Stay Connected</h2>
+      <p>Subscribe to our newsletter for updates on events, new content, and community features.</p>
+      <form id="newsletter-form">
+        <input type="email" placeholder="Your email address" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 Ode & Anarchy. All rights reserved.</p>
+      <div class="social-links">
+        <a href="https://www.facebook.com/profile.php?id=61578275082122" target="_blank" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/odeandanarchy/" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.tiktok.com/@odeandanarchyapp" target="_blank" aria-label="TikTok">
+          <i class="fab fa-tiktok"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+
+  <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', () => {
+  try {
+    // Initialize Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyBqnkXnAPzOhMb9O-Z6SsSJdKdutPl50BY",
+      authDomain: "ode-and-anarchy.firebaseapp.com",
+      projectId: "ode-and-anarchy",
+      storageBucket: "ode-and-anarchy.appspot.com",
+      messagingSenderId: "70787014804",
+      appId: "1:70787014804:web:6eb9e97013afa9a66b5481",
+      measurementId: "G-7P3XC3LPRB"
+    };
+
+    // Initialize Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const analytics = firebase.analytics();
+
+    // DOM elements with null checks
+    const loginBtn = document.querySelector('.login-btn');
+    const signInBtn = document.getElementById('sign-in-btn');
+    const signUpBtn = document.getElementById('sign-up-btn');
+    const signOutBtn = document.querySelector('.sign-out-btn');
+    const authEmail = document.querySelector('.auth-email');
+    const authPassword = document.querySelector('.auth-password');
+    const authError = document.getElementById('auth-error');
+    const loggedOutElements = document.querySelectorAll('.logged-out');
+    const loggedInElements = document.querySelectorAll('.logged-in');
+    const userName = document.getElementById('user-name');
+    const userEmail = document.getElementById('user-email');
+    const dropdownContent = document.querySelector('.dropdown-content');
+    const authStatus = document.querySelector('.auth-status');
+
+    // Toggle dropdown
+    if (loginBtn && dropdownContent) {
+      loginBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dropdownContent.classList.toggle('visible');
       });
-    </script>
+    }
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (dropdownContent && !e.target.closest('#auth-form')) {
+        dropdownContent.classList.remove('visible');
+      }
+    });
+
+    // Auth functions
+    async function handleAuthAction(action, email, password) {
+      try {
+        const userCredential = await action(email, password);
+        if (dropdownContent) dropdownContent.classList.remove('visible');
+        if (authEmail) authEmail.value = '';
+        if (authPassword) authPassword.value = '';
+        return userCredential;
+      } catch (error) {
+        showError(getFirebaseErrorMessage(error));
+        throw error;
+      }
+    }
+
+    // Sign up function
+    if (signUpBtn && authEmail && authPassword) {
+      signUpBtn.addEventListener('click', () => {
+        const email = authEmail.value;
+        const password = authPassword.value;
+        
+        if (!validateEmail(email)) {
+          showError('Please enter a valid email address');
+          return;
+        }
+        
+        if (password.length < 6) {
+          showError('Password should be at least 6 characters');
+          return;
+        }
+
+        handleAuthAction(
+          (email, password) => auth.createUserWithEmailAndPassword(email, password),
+          email,
+          password
+        );
+      });
+    }
+
+    // Sign in function
+    if (signInBtn && authEmail && authPassword) {
+      signInBtn.addEventListener('click', () => {
+        const email = authEmail.value;
+        const password = authPassword.value;
+        
+        if (!validateEmail(email)) {
+          showError('Please enter a valid email address');
+          return;
+        }
+
+        handleAuthAction(
+          (email, password) => auth.signInWithEmailAndPassword(email, password),
+          email,
+          password
+        );
+      });
+    }
+
+    // Sign out function
+    if (signOutBtn) {
+      signOutBtn.addEventListener('click', () => {
+        auth.signOut().then(() => {
+          if (dropdownContent) dropdownContent.classList.remove('visible');
+        }).catch((error) => {
+          showError(getFirebaseErrorMessage(error));
+        });
+      });
+    }
+
+    // Auth state listener
+    auth.onAuthStateChanged((user) => {
+      updateAuthState(user);
+      updateAuthStatus(user);
+    });
+
+    // Update auth state
+    function updateAuthState(user) {
+      if (user) {
+        // User is signed in
+        loggedOutElements.forEach(el => el.classList.remove('visible'));
+        loggedInElements.forEach(el => el.classList.add('visible'));
+        if (userName) userName.textContent = user.displayName || user.email.split('@')[0];
+        if (authError) authError.classList.remove('visible');
+      } else {
+        // User is signed out
+        loggedOutElements.forEach(el => el.classList.add('visible'));
+        loggedInElements.forEach(el => el.classList.remove('visible'));
+        if (authEmail) authEmail.value = '';
+        if (authPassword) authPassword.value = '';
+      }
+    }
+
+    // Update auth status display
+    function updateAuthStatus(user) {
+      if (!authStatus) return;
+      
+      if (user) {
+        authStatus.textContent = `Signed in as: ${user.email}`;
+        authStatus.style.backgroundColor = '#d5f5e3';
+      } else {
+        authStatus.textContent = 'Not signed in';
+        authStatus.style.backgroundColor = '#fadbd8';
+      }
+    }
+
+    // Show error message
+    function showError(message) {
+      if (!authError) return;
+      authError.textContent = message;
+      authError.classList.add('visible');
+      setTimeout(() => {
+        authError.classList.remove('visible');
+      }, 5000);
+    }
+
+    // Helper function to validate email
+    function validateEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    }
+
+    // Helper function to get user-friendly error messages
+    function getFirebaseErrorMessage(error) {
+      switch (error.code) {
+        case 'auth/email-already-in-use':
+          return 'Email already in use';
+        case 'auth/invalid-email':
+          return 'Invalid email address';
+        case 'auth/operation-not-allowed':
+          return 'Operation not allowed';
+        case 'auth/weak-password':
+          return 'Password is too weak';
+        case 'auth/user-disabled':
+          return 'Account disabled';
+        case 'auth/user-not-found':
+          return 'No account found with this email';
+        case 'auth/wrong-password':
+          return 'Incorrect password';
+        default:
+          return error.message;
+      }
+    }
+
+  } catch (error) {
+    console.error('Initialization error:', error);
+    if (authStatus) {
+      authStatus.textContent = 'Error initializing authentication';
+      authStatus.style.backgroundColor = '#fadbd8';
+    }
+  }
+});</script>
+<script type="module" src="firebase-config.js"></script>
+<script type="module" src="auth.js"></script>
+
   </body>
 </html>

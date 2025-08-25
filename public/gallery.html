@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Ode & Anarchy</title>
+
+<!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="navstyles.css">
+  <link rel="stylesheet" href="loginbuttonstyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/css/lightgallery.min.css">
+  </head>
+<body>
+  <!-- Header -->
+  <header>
+    <!-- Burger Menu (Left) -->
+    <button class="burger-menu" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  
+    <!-- Site Name (Middle) -->
+    <div class="logo">
+      <div class="vinyl">
+        <h1>Ode & Anarchy</h1>
+      </div>
+    </div>
+
+    <!-- Dark/Light Mode Toggle -->
+    <button id="theme-toggle" aria-label="Toggle dark/light mode" aria-pressed="false" title="Toggle Dark/Light Mode">
+      <i class="fas fa-moon"></i>
+      <i class="fas fa-sun"></i>
+    </button>
+  
+    
+  
+    <!-- Full-Screen Navigation Overlay -->
+    <nav class="nav-overlay">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="voices_unbound.html">Voices Unbound</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="soulstorm.html">Soulstorm</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="venues.html">Venues</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section with gallery-hero.webp -->
+  <section class="hero gallery-hero">
+    <div class="hero-background">
+      <img src="images\gallery-hero.webp" alt="Welcome to Ode & Anarchy">
+    </div>
+    <div class="hero-content">
+      <h2>Live Moments & Backstage</h2>
+      <p>Relive our most epic performances and intimate behind-the-scenes moments</p>
+      <a href="community.html" class="btn">Join Now</a>
+    </div>
+  </section>
+
+  <!-- Gallery Content -->
+  <main class="gallery-container">
+    <section class="gallery-intro">
+      <h2>Our Gallery</h2>
+      <p>Explore our collection of live performances, backstage moments, and event highlights. Click on any image to view it in full size.</p>
+      <div class="gallery-filter">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="live">Live Shows</button>
+        <button class="filter-btn" data-filter="backstage">Backstage</button>
+        <button class="filter-btn" data-filter="events">Events</button>
+        <button class="filter-btn" data-filter="fans">With Fans</button>
+      </div>
+    </section>
+
+    <div class="gallery-grid" id="lightgallery">
+      <!-- Gallery items will be loaded here dynamically -->
+      <!-- Sample items for demonstration -->
+      <a href="images/band-show1.jpg" class="gallery-item live" data-sub-html="<h4>RockFest 2024</h4><p>Our headline performance at RockFest</p>">
+        <img src="images/band-show1-thumb.jpg" alt="Band performing at RockFest">
+        <div class="gallery-overlay">
+          <h3>RockFest 2024</h3>
+          <p>Headline Performance</p>
+        </div>
+      </a>
+      
+      <a href="images/backstage1.jpg" class="gallery-item backstage" data-sub-html="<h4>Pre-show Warmup</h4><p>Getting ready before the big show</p>">
+        <img src="images/backstage1-thumb.jpg" alt="Band warming up backstage">
+        <div class="gallery-overlay">
+          <h3>Pre-show Warmup</h3>
+          <p>Behind the scenes</p>
+        </div>
+      </a>
+      
+      <a href="images/event1.jpg" class="gallery-item events" data-sub-html="<h4>Album Release Party</h4><p>Celebrating our new album</p>">
+        <img src="images/event1-thumb.jpg" alt="Album release party">
+        <div class="gallery-overlay">
+          <h3>Album Release</h3>
+          <p>Celebration night</p>
+        </div>
+      </a>
+      
+      <a href="images/fans1.jpg" class="gallery-item fans" data-sub-html="<h4>Meet & Greet</h4><p>Hanging out with our amazing fans</p>">
+        <img src="images/fans1-thumb.jpg" alt="Band with fans">
+        <div class="gallery-overlay">
+          <h3>Fan Meetup</h3>
+          <p>After-show gathering</p>
+        </div>
+      </a>
+      
+      <!-- More gallery items would be added here -->
+    </div>
+
+    <section class="video-gallery">
+      <h2>Live Performances</h2>
+      <div class="video-grid">
+        <div class="video-item">
+          <iframe src="https://www.youtube.com/embed/example1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <h3>Full Set at MetalFest</h3>
+        </div>
+        <div class="video-item">
+          <iframe src="https://www.youtube.com/embed/example2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <h3>Acoustic Session</h3>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 Ode & Anarchy. All rights reserved.</p>
+      <div class="social-links">
+        <a href="https://www.facebook.com/profile.php?id=61578275082122" target="_blank" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/odeandanarchy/" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.tiktok.com/@odeandanarchyapp" target="_blank" aria-label="TikTok">
+          <i class="fab fa-tiktok"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.1/lightgallery.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    // Initialize lightGallery
+    document.addEventListener('DOMContentLoaded', function() {
+      lightGallery(document.getElementById('lightgallery'), {
+        selector: '.gallery-item',
+        download: false,
+        counter: false
+      });
+
+      // Filter functionality
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const galleryItems = document.querySelectorAll('.gallery-item');
+
+      filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          // Update active button
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          button.classList.add('active');
+
+          const filterValue = button.getAttribute('data-filter');
+
+          // Filter items
+          galleryItems.forEach(item => {
+            if (filterValue === 'all' || item.classList.contains(filterValue)) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
